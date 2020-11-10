@@ -43,8 +43,7 @@ def get_source_list(file_path: str):
     path_list = []
     f = open(file_path, "r")
     raw_data = f.read().splitlines()
-    for line in raw_data:
-        path_list.append(line.split("\t")[1])
+    path_list = raw_data
     f.close()
     return path_list
 
@@ -62,7 +61,7 @@ if __name__ == "__main__":
     sftp = paramiko.SFTPClient.from_transport(t)
 
     # 远程文件路径（需要绝对路径）
-    source_list = get_source_list("source_data/id_pdf_path.txt")
+    source_list = get_source_list("source_data/csv.csv")
     # remote_dir = ""
     # # 本地文件存放路径（绝对路径或者相对路径都可以）
     # local_dir = 'download_data/'
